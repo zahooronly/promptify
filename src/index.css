@@ -1,41 +1,4 @@
-/* CSS Custom Properties for Theming */
-:root {
-  /* Light theme colors */
-  --bg-primary: #ffffff;
-  --bg-secondary: #f8fafc;
-  --bg-tertiary: #f1f5f9;
-  --text-primary: #1e293b;
-  --text-secondary: #475569;
-  --text-muted: #94a3b8;
-  --border-color: #e2e8f0;
-  
-  /* Typography */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-  
-  /* Rendering optimizations */
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  
-  /* Color scheme */
-  color-scheme: light dark;
-}
-
-/* Dark theme */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg-primary: #0f172a;
-    --bg-secondary: #1e293b;
-    --bg-tertiary: #334155;
-    --text-primary: #f1f5f9;
-    --text-secondary: #cbd5e1;
-    --text-muted: #64748b;
-    --border-color: #334155;
-  }
-}
+@import "tailwindcss";
 
 /* Base styles */
 * {
@@ -45,15 +8,18 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
-  font-family: inherit;
   width: 400px;
   height: 600px;
   min-width: 400px;
   min-height: 600px;
-  overflow: hidden; /* Prevent scrolling in extension popup */
-  box-sizing: border-box;
+  overflow: hidden;
+  background: linear-gradient(135deg, 
+    rgba(148, 163, 184, 0.1) 0%, 
+    rgba(203, 213, 225, 0.1) 50%, 
+    rgba(148, 163, 184, 0.1) 100%);
+  backdrop-filter: blur(16px);
+  color: #1e293b;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 #root {
@@ -63,20 +29,8 @@ body {
   min-height: 600px;
   display: flex;
   align-items: stretch;
-  box-sizing: border-box;
 }
 
-/* Focus styles */
-*:focus {
-  outline: 2px solid #646cff;
-  outline-offset: 2px;
-}
-
-*:focus:not(:focus-visible) {
-  outline: none;
-}
-
-/* Button reset */
 button {
   font-family: inherit;
   font-size: inherit;
@@ -84,45 +38,82 @@ button {
   margin: 0;
 }
 
-/* Input reset */
 input, textarea {
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
 }
 
-/* Scrollbar styling */
+/* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--bg-secondary);
+  background: rgba(148, 163, 184, 0.2);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--border-color);
-  border-radius: 3px;
+  background: rgba(100, 116, 139, 0.6);
+  border-radius: 2px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--text-muted);
+  background: rgba(71, 85, 105, 0.7);
 }
 
-/* Selection styling */
 ::selection {
-  background: rgba(100, 108, 255, 0.2);
-  color: var(--text-primary);
+  background: rgba(59, 130, 246, 0.2);
+  color: #1e293b;
 }
 
-/* Reduced motion support */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  body {
+    color: #f1f5f9;
+    background: linear-gradient(135deg, 
+      rgba(15, 23, 42, 0.1) 0%, 
+      rgba(30, 41, 59, 0.1) 50%, 
+      rgba(15, 23, 42, 0.1) 100%);
+  }
+  
+  ::selection {
+    background: rgba(96, 165, 250, 0.2);
+    color: #f1f5f9;
+  }
+}
+
+//* Custom Glass Effects */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-hover:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+/* Animation keyframes */
+@keyframes helpSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
