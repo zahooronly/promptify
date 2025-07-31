@@ -96,34 +96,42 @@ export const ErrorMessage: React.FC<ExtendedErrorMessageProps> = ({
   const severity = getErrorSeverity(errorType);
   const helpText = getHelpText(errorType);
 
+  const severityClasses = {
+    error: 'bg-red-50/80 border-red-500 text-red-800',
+    warning: 'bg-amber-50/80 border-amber-500 text-amber-800',
+    info: 'bg-blue-50/80 border-blue-500 text-blue-800'
+  };
+
   return (
     <div 
-      className={`error-container ${severity}`}
+      className={`p-3 border-l-4 rounded-lg backdrop-blur-sm flex items-start gap-3 animate-[slideIn_0.3s_ease-out] ${severityClasses[severity]}`}
       role="alert"
       aria-live="polite"
     >
-      <div className="error-content">
-        <span className="error-icon" aria-hidden="true">
+      <div className="flex-1 flex items-start gap-2">
+        <span className="text-base flex-shrink-0 mt-0.5" aria-hidden="true">
           {getErrorIcon(errorType)}
         </span>
-        <div className="error-text-container">
-          <span className="error-text">{message}</span>
+        <div className="flex-1 flex flex-col gap-1">
+          <span className="text-sm font-medium leading-tight">{message}</span>
           {helpText && (
-            <span className="error-help">{helpText}</span>
+            <span className="text-xs opacity-80 leading-tight">{helpText}</span>
           )}
           {details && (
-            <details className="error-details">
-              <summary>Technical Details</summary>
-              <pre>{details}</pre>
+            <details className="mt-2 text-xs">
+              <summary className="cursor-pointer font-medium mb-1">Technical Details</summary>
+              <pre className="bg-black/5 p-2 rounded text-xs overflow-x-auto m-0 whitespace-pre-wrap">
+                {details}
+              </pre>
             </details>
           )}
         </div>
       </div>
       
-      <div className="error-actions">
+      <div className="flex gap-2 flex-shrink-0">
         {onRetry && (
           <button 
-            className="retry-button" 
+            className="px-2 py-1 bg-blue-500/10 text-blue-600 border-none rounded text-xs cursor-pointer transition-all duration-200 hover:bg-blue-500/20"
             onClick={onRetry}
             title="Retry the operation"
           >
@@ -132,7 +140,7 @@ export const ErrorMessage: React.FC<ExtendedErrorMessageProps> = ({
         )}
         {onDismiss && (
           <button 
-            className="dismiss-button" 
+            className="w-6 h-6 bg-black/5 text-slate-500 border-none rounded text-xs cursor-pointer transition-all duration-200 hover:bg-black/10 flex items-center justify-center"
             onClick={onDismiss}
             title="Dismiss this error"
             aria-label="Dismiss error"
@@ -143,7 +151,7 @@ export const ErrorMessage: React.FC<ExtendedErrorMessageProps> = ({
       </div>
 
       {autoHide && countdown > 0 && (
-        <div className="error-countdown">
+        <div className="text-xs opacity-70 text-center mt-1 absolute bottom-1 left-1/2 transform -translate-x-1/2">
           Auto-dismiss in {countdown}s
         </div>
       )}
