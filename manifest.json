@@ -1,0 +1,10 @@
+{
+    "manifest_version": 3,
+    "name": "Promptify",
+    "version": "1.0.0",
+    "description": "Best prompt enhancer!",
+    "action": {
+      "default_popup": "index.html"
+    },
+    "permissions": []
+  }
