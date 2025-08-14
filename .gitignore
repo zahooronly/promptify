@@ -28,6 +28,7 @@ build
 .vscode
 
 example-output.md
+src/__tests__/
 
 # env
 .env
