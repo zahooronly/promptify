@@ -24,5 +24,11 @@ build
 *.sln
 *.sw?
 
+.kiro
+.vscode
+
+example-output.md
+src/__tests__/
+
 # env
 .env
