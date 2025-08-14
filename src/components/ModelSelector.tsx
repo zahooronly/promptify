@@ -41,7 +41,7 @@ export const ModelSelector: React.FC<ModelSelectorProps> = ({
         {models.map((model) => (
           <button
             key={model.id}
-            className={`flex items-center gap-1 px-2 py-1.5 border-2 rounded-lg bg-white/10 backdrop-blur-sm text-slate-600 text-xs cursor-pointer transition-all duration-200 flex-1 min-w-0 justify-center hover:border-blue-500 hover:bg-white/20 disabled:opacity-50 disabled:cursor-not-allowed ${selectedModel === model.id
+            className={`flex items-center gap-1 px-0 py-1.5 border-2 rounded-lg bg-white/10 backdrop-blur-sm text-slate-600 text-xs cursor-pointer transition-all duration-200 flex-1 min-w-0 justify-center hover:border-blue-500 hover:bg-white/20 disabled:opacity-50 disabled:cursor-not-allowed ${selectedModel === model.id
               ? 'border-blue-500 bg-blue-500/10 text-blue-600 font-semibold'
               : 'border-white/20'
               }`}
@@ -50,7 +50,7 @@ export const ModelSelector: React.FC<ModelSelectorProps> = ({
             title={model.description}
           >
             <span className="text-sm flex-shrink-0">{model.icon}</span>
-            <span className="font-medium text-xs truncate">{model.name.slice(0, 3)}...</span>
+            <span className="font-medium text-xs truncate">{model.name}</span>
           </button>
         ))}
       </div>
