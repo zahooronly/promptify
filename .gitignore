@@ -24,5 +24,8 @@ build
 *.sln
 *.sw?
 
+.kiro
+.vscode
+
 # env
 .env
