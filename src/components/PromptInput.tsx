@@ -37,14 +37,14 @@ export const PromptInput: React.FC<PromptInputProps> = ({
   }, [disabled]);
 
   return (
-    <div className="prompt-input-container">
-      <label htmlFor="prompt-input" className="prompt-label">
+    <div className="flex flex-col gap-2">
+      <label htmlFor="prompt-input" className="text-sm font-medium text-slate-600">
         Enter your prompt:
       </label>
       <textarea
         ref={textareaRef}
         id="prompt-input"
-        className={`prompt-textarea ${disabled ? 'disabled' : ''}`}
+        className={`w-full min-h-[80px] max-h-[150px] p-3 border border-white/20 rounded-xl text-sm leading-relaxed resize-y transition-all duration-300 bg-white/10 backdrop-blur-md text-slate-800 font-inherit shadow-glass-inset focus:outline-none focus:border-blue-500 focus:shadow-[0_0_0_3px_rgba(59,130,246,0.2)] focus:bg-white/20 ${disabled ? 'opacity-60 cursor-not-allowed' : ''}`}
         value={value}
         onChange={handleChange}
         onKeyDown={handleKeyDown}
