@@ -440,7 +440,7 @@ This project is licensed under the MIT License.
 ```
 MIT License
 
-Copyright (c) 2024 Promptify
+Copyright (c) 2025 Promptify
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -482,7 +482,6 @@ We extend our gratitude to:
 - **GitHub Repository**: [zahooronly/promptify](https://github.com/zahooronly/promptify)
 - **Issues & Bug Reports**: [GitHub Issues](https://github.com/zahooronly/promptify/issues)
 - **Feature Discussions**: [GitHub Discussions](https://github.com/zahooronly/promptify/discussions)
-- **Email Support**: support@promptify.dev
 
 ### Project Roadmap
 
