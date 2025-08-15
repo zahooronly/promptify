@@ -101,7 +101,7 @@ Promptify is a professional browser extension that enhances prompts using Google
 5. **Install in browser**
    - Navigate to `chrome://extensions/` in Chrome or Edge
    - Enable "Developer mode" toggle
-   - Click "Load unpacked" and select the generated `dist` folder
+   - Click "Load unpacked" and select the generated `build` folder
 
 ### Obtaining a Gemini API Key
 
